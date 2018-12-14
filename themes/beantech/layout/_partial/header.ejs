@@ -33,7 +33,7 @@
 
 <header class="intro-header" style="position: relative">
     <% if (is_home()) { %>
-        <video src="<%= config.root + config['video-src'] %>" muted autoplay loop style="width:100%; height:100%; object-fit: fill;position:absolute;top: 0;left: 0;"></video>
+        <video src="<%= config.root + config['video-src'] %>" preload muted autoplay loop style="width:100%; height:100%; object-fit: fill;position:absolute;top: 0;left: 0;"></video>
         <div id='video-mask'></div>
     <%} %>
     <!-- Signature -->
