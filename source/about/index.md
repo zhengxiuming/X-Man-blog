@@ -3,9 +3,8 @@ layout: "about"
 title: "About"
 date: 2016-04-21 04:48:33
 description: "Wish for the Best, Prepare for the Worst"
-header-img: "img/header_img/Iron-Man-3.jpg"
+header-img: "img/header_img/tf-logo-dark.png"
 comments: true
 ---
 
-> 光有好奇心而不去實踐，等於自願放棄成功機會
-> 別為自己畫地自限，Just Do It！！
+> 美丽的空想抵不上踏实的做事，只要开始做事，就算再晚也不迟。

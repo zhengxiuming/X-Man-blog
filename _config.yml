@@ -24,8 +24,10 @@ email: 632281949@qq.com
 description: "秀儿的博客"
 keyword: "博客"
 header-img: img/header_img/home-bg-2-dark.png
+video-src: img/header_img/main-video.mp4
+video-img: img/header_img/topbg.jpg
 signature: true #show signature
-signature-img: img/signature/BeanTechSign-white.png 
+signature-img: img/signature/sing-zxm.png 
 
 
 # SNS settings
