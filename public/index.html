@@ -75,12 +75,27 @@
     }
     
     #signature{
-        background-image: url('/img/signature/BeanTechSign-white.png');
+        background-image: url('/img/signature/sing-zxm.png');
+    }
+    
+    
+    #video-mask{
+        background-image: url('/img/header_img/topbg.jpg');
+        height: 100%;
+        position: absolute;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        opacity: .5;
     }
     
 </style>
 
-<header class="intro-header" >
+<header class="intro-header" style="position: relative">
+    
+        <video src="/img/header_img/main-video.mp4" muted autoplay loop style="width:100%; height:100%; object-fit: fill;position:absolute;top: 0;left: 0;"></video>
+        <div id='video-mask'></div>
+    
     <!-- Signature -->
     <div id="signature">
         <div class="container">
@@ -648,7 +663,7 @@ I publish the whole project f......
 	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
-<img src="http://yoursite-url/img/icon_wechat.png" width="0" height="0" />
+<!-- <img src="http://yoursite-url/img/icon_wechat.png" width="0" height="0" /> -->
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
 </body>
