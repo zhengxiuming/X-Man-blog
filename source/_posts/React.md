@@ -76,5 +76,132 @@ componentDidMount(){
     console.log(scroll,'scroll');
 }
 ```
+以上只是最基本的调用使用，还要在组件销毁时把 BScroll 实例卸载
 
+## 三、也可以封装成一个 Scroll 组件，把内容放在这个组件里
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {PropTypes} from 'prop-types'
+import styles from './index.less';
 
+class Scroll extends React.Component{
+  constructor (props){
+    super(props);
+  }
+  static defaultProps = {
+    click: true, //页面是否可以点击
+    refresh: false, // 刷新Scroll
+    onScroll: null, // scroll 回调事件,
+    scrollTo: null, // 滚动到固定位置
+    initScrollTop:null, //滚动到固定位置之后，回调重置scrollTop
+    pullingDown: null, // 下拉刷新 回调
+    pullingUp: null, // 上拉加载 回调函数
+  }
+  componentDidUpdate(){
+    //数据更新之后，要调用refresh方法一下。
+    if(this.bScroll && this.props.refresh === true){
+      this.bScroll.refresh()
+    }
+    //返回顶部时
+    if(this.bScroll && this.props.scrollTo === 0 && this.bScroll.y !== 0){
+      this.bScroll.scrollTo(0,this.props.scrollTo)
+      this.props.initScrollTop()
+    }
+  }
+  componentDidMount(){
+    this.scrollView = ReactDOM.findDOMNode(this.refs.scrollView);
+    if(!this.bScroll){
+      console.log(this.props.pullDownRefresh,this.props.pullUpLoad);
+      this.bScroll = new BScroll(this.scrollView,{
+        probeType:3,
+        click: this.props.click
+      })
+      // 滑动时间
+      if(this.props.onScroll){
+        this.bScroll.on("scroll", (scroll) => {
+          this.props.onScroll(scroll)
+        })
+      }
+      // 下拉刷新
+      if(this.props.pullingDown){
+        this.bScroll.on("touchEnd", (pos) => {
+          if(pos.y > 200){
+            this.props.pullingDown()
+          }
+        })
+      }
+      // 上拉加载
+      if(this.props.pullingUp){
+        this.bScroll.on("scrollEnd", () => {
+          if(this.bScroll.y <= (this.bScroll.maxScrollY + 50)){
+            this.props.pullingUp()
+          }
+        })
+      }
+    }
+  }
+  componentWillUnmount(){
+    this.bScroll.off('scroll');
+    this.bScroll = null;
+  }
+  // 捕获错误
+  componentDidCatch(error,info){
+    console.log(`componentDidCatch:${error}+${info}`);
+  }
+  render(){
+    return (
+      <div className={styles.scrollView} ref="scrollView">
+        {this.props.children}
+      </div>
+    )
+  }
+}
+Scroll.propTypes = {
+  click: PropTypes.bool,
+  refresh: PropTypes.bool,
+  pullingDown:PropTypes.func,
+  initScrollTop:PropTypes.func,
+  pullingUp:PropTypes.func,
+  onScroll: PropTypes.func
+}
+export default Scroll;
+
+```
+### 调用组件
+```
+import React from 'react';
+import Scroll from 'Scroll'
+class Content extends React.Component{
+  constructor(){
+    this.state = {
+      refresh: false
+    }
+  }
+  //数据有更新要调用refresh方法
+  componentWillReceiveProps(){
+    this.setState({
+      refresh:true
+    })
+  }
+  //实时滑动事件
+  handleScroll(e){
+    console.log(e)
+  }
+  render(){
+    return(
+      <Scroll 
+      refresh={this.state.refresh}
+      onScroll={(e)=>{this.handleScroll(e)}}
+      
+      >
+        <div>
+          ....
+        </div>
+      </Scroll>
+    )
+  }
+}
+
+export default Content;
+```

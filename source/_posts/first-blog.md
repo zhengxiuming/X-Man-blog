@@ -6,7 +6,10 @@ subtitle: "初始化博客"
 header-img:
 tags:
 - Hexo
-- Blog
 catagories:
 - Hexo
 ---
+## 博客搭建环境
+- 使用hexo 博客框架搭建
+- 这个主题来自 [YuHsuan](http://beantech.org) ,根据原主题又做了一些对应的调整
+- 
