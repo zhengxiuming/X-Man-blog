@@ -1,17 +1,17 @@
 ---
-title: 关于React中使用better-scroll及普通情况下失效的原因
+title: React中使用better-scroll
 catalog: true
 date: 2018-08-31 16:04:47
 subtitle: 'better-scroll'
-header-img:
+header-img: "img/header_img/sky.jpg"
 tags:
 - React
 ---
-# 关于React中使用better-scroll及普通情况下失效的原因
+# React中使用better-scroll
 
 ---------
 
-## 一、一般情况下better-scroll滚动无效的原因
+## 一、better-scroll滚动无效的原因
 ### 1.DOM层级关系
 ```
 <div class="wrapper">
@@ -78,7 +78,7 @@ componentDidMount(){
 ```
 以上只是最基本的调用使用，还要在组件销毁时把 BScroll 实例卸载
 
-## 三、也可以封装成一个 Scroll 组件，把内容放在这个组件里
+## 三、封装成一个 Scroll 组件，把内容放在这个组件里
 ```
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -168,6 +168,16 @@ Scroll.propTypes = {
 export default Scroll;
 
 ```
+index.less
+```
+.scrollView{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+```
+
 ### 调用组件
 ```
 import React from 'react';
