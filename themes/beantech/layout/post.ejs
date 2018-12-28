@@ -141,7 +141,9 @@ layout: layout
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "<%= config['disqus_username'] %>";
     var disqus_identifier = "<%= page.permalink %>";
-    var disqus_url = "<%= page.permalink %>";
+    // var disqus_url = "<%= page.permalink %>";
+    var disqus_url = "<%= page.url %>";
+    console.log(disqus_url,disqus_shortname);
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
