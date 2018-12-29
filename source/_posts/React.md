@@ -90,22 +90,26 @@ class Scroll extends React.Component{
     super(props);
   }
   static defaultProps = {
-    click: true, //页面是否可以点击
+    click: true, //页面是否可以点击,
+    tap: true,
     refresh: false, // 刷新Scroll
     onScroll: null, // scroll 回调事件,
     scrollTo: null, // 滚动到固定位置
     initScrollTop:null, //滚动到固定位置之后，回调重置scrollTop
     pullingDown: null, // 下拉刷新 回调
     pullingUp: null, // 上拉加载 回调函数
+    scrollToEle: null,
   }
   componentDidUpdate(){
-    //数据更新之后，要调用refresh方法一下。
     if(this.bScroll && this.props.refresh === true){
       this.bScroll.refresh()
     }
-    //返回顶部时
     if(this.bScroll && this.props.scrollTo === 0 && this.bScroll.y !== 0){
       this.bScroll.scrollTo(0,this.props.scrollTo)
+      this.props.initScrollTop()
+    }
+    if(this.bScroll && this.props.scrollToEle){
+      this.bScroll.scrollToElement(this.props.scrollToEle,200)
       this.props.initScrollTop()
     }
   }
@@ -115,7 +119,8 @@ class Scroll extends React.Component{
       console.log(this.props.pullDownRefresh,this.props.pullUpLoad);
       this.bScroll = new BScroll(this.scrollView,{
         probeType:3,
-        click: this.props.click
+        click: this.props.click ? this.iScrollClick(): false,
+        taps: this.props.tap
       })
       // 滑动时间
       if(this.props.onScroll){
@@ -139,6 +144,18 @@ class Scroll extends React.Component{
           }
         })
       }
+    }
+  }
+  /**
+   * 解决ios上需要点击两次才能触发点击事件
+   *  */
+  iScrollClick(){
+    if (/iPhone|iPad|iPod|Macintosh/i.test(navigator.userAgent)) return false;
+    if (/Chrome/i.test(navigator.userAgent)) return (/Android/i.test(navigator.userAgent));
+    if (/Silk/i.test(navigator.userAgent)) return false;
+    if (/Android/i.test(navigator.userAgent)) {
+       var s=navigator.userAgent.substr(navigator.userAgent.indexOf('Android')+8,3);
+       return parseFloat(s[0]+s[3]) < 44 ? false : true
     }
   }
   componentWillUnmount(){
@@ -166,7 +183,6 @@ Scroll.propTypes = {
   onScroll: PropTypes.func
 }
 export default Scroll;
-
 ```
 index.less
 ```
@@ -215,3 +231,24 @@ class Content extends React.Component{
 
 export default Content;
 ```
+> 在IOS端遇到的兼容性问题
+
+ better-scroll 默认会阻止浏览器的原生click事件，我们需要将click属性设为true。
+ 问题来了，在IOS端和浏览器模拟器中，即使我们设为false也是可以触发click事件的。如果设为true，我们在IOS端和浏览器模拟器中就需要点击两次才能触发click事件。
+ 根据以上特性我们只能根据设备的和浏览器版本信息，动态设置click的值。
+ 
+ ```
+ iScrollClick(){
+    if (/iPhone|iPad|iPod|Macintosh/i.test(navigator.userAgent)) return false;
+    if (/Chrome/i.test(navigator.userAgent)) return (/Android/i.test(navigator.userAgent));
+    if (/Silk/i.test(navigator.userAgent)) return false;
+    if (/Android/i.test(navigator.userAgent)) {
+       var s=navigator.userAgent.substr(navigator.userAgent.indexOf('Android')+8,3);
+       return parseFloat(s[0]+s[3]) < 44 ? false : true
+    }
+  }
+ ```
+
+> 最后
+
+我想说的是不管我们使用css的-webkit-overflow-scrolling:touch还是better-scroll（其他iScroll.js等其他第三方库），都会有想不到的问题，实际中我们还是要针对我们自己的项目来选择使用什么方式。
