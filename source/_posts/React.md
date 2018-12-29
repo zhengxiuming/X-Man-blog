@@ -6,6 +6,8 @@ subtitle: 'better-scroll'
 header-img: "img/header_img/sky.jpg"
 tags:
 - React
+catagories:
+- React
 ---
 # React中使用better-scroll
 
