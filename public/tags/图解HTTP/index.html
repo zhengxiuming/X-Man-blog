@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          使用 localCompare 排序 在华为微信端出现的bug - X-Man | 秀儿
+          X-Man | 秀儿
         
     </title>
 
-    <link rel="canonical" href="http://blog.zhengxiuming.com.cn/2019/01/09/localCompareBug/">
+    <link rel="canonical" href="http://blog.zhengxiuming.com.cn/tags/图解HTTP/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -69,8 +69,8 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('null')
-            /*post*/
+            background-image: url('/undefined')
+            /*page*/
         
     }
     
@@ -89,18 +89,10 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 
-                    <div class="post-heading">
-                        <div class="tags">
-                            
-                              <a class="tag" href="/tags/#bug" title="bug">bug</a>
-                            
-                        </div>
-                        <h1>使用 localCompare 排序 在华为微信端出现的bug</h1>
-                        <h2 class="subheading"></h2>
-                        <span class="meta">
-                            Posted by X-Man on
-                            2019-01-09
-                        </span>
+                    <div class="site-heading">
+                        <h1>X-Man Blog</h1>
+                        <!--<hr class="small">-->
+                        <span class="subheading">This is hexo theme</span>
                     </div>
                 
 
@@ -203,168 +195,292 @@
 
 
     <!-- Main Content -->
-    <!-- Modify by Yu-Hsuan Yen -->
+    <!-- Main Content -->
+<div class="container">
+    <div class="row">
+        
 
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-
-            <!-- Post Container -->
+<!-- USE SIDEBAR -->
+    <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                post-container">
-
-                <h3><span id="需求及出现的问题">需求及出现的问题</span></h3>
-<p>需求：把一系列数组根据数组中的value的首字母进行排序。<br>
-问题：在华为微信端会出现只循环一次，然后执行报错。其他浏览器和其他手机都没有问题。</p>
-<h3><span id="出现问题的代码">出现问题的代码</span></h3>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [&#123;spell:<span class="string">'A'</span>&#125;,&#123;spell:<span class="string">'B'</span>&#125;,&#123;spell:<span class="string">'C'</span>&#125;....];</span><br><span class="line">arr.sort((a,b)=&gt;&#123;</span><br><span class="line">  return a.spell.localeCompare(b.spell)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h3><span id="如何解决">如何解决</span></h3>
-<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">arr.sort(<span class="function"><span class="params">(a,b)</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(a.spell&gt;b.spell)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  &#125;<span class="keyword">else</span> <span class="keyword">if</span>(a.spell&lt;b.spell)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
+                col-lg-8 col-lg-offset-1
+                col-md-8 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                post-container
+            ">
+            
                 
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <!-- 归档列表 -->
+            
+            
 
-                <hr>
-                <!-- Pager -->
-                <ul class="pager">
-                    
-                        <li class="previous">
-                            <a href="/2019/01/10/HTTP-1/" data-toggle="tooltip" data-placement="top" title="《图解HTTP》学习笔记 之 第一篇：了解Web及网络基础">&larr; Previous Post</a>
-                        </li>
-                    
-                    
-                        <li class="next">
-                            <a href="/2019/01/09/future/" data-toggle="tooltip" data-placement="top" title="Future">Next Post &rarr;</a>
-                        </li>
-                    
+             <!-- 归档列表 -->
+
+            
+            <div class="one-tag-list">
+                <span class="fa fa-calendar-times-o listing-seperator" id="2019">
+                    <span class="tag-text">2019</span>
+                </span>
+                <ul>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <li >
+                    01-10
+                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                    <a href="/2019/01/10/HTTP-1/" style="color: #0085a1">
+                        <span>
+                            《图解HTTP》学习笔记 之 第一篇：了解Web及网络基础
+                        </span>
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </li>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <li >
+                    01-09
+                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                    <a href="/2019/01/09/localCompareBug/" style="color: #0085a1">
+                        <span>
+                            使用 localCompare 排序 在华为微信端出现的bug
+                        </span>
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </li>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <li >
+                    01-09
+                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                    <a href="/2019/01/09/future/" style="color: #0085a1">
+                        <span>
+                            Future
+                        </span>
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </li>
+                
                 </ul>
-
-                <!-- duoshuo Share start -->
-                
-                <!-- 多说 Share end-->
-
-                <!-- 多说评论框 start -->
-                
-                <!-- 多说评论框 end -->
-
-                <!-- disqus comment start -->
-                
-                    <div class="comment">
-                        <div id="disqus_thread" class="disqus-thread"></div>
-                    </div>
-                
-                <!-- disqus comment end -->
             </div>
             
-            <!-- Tabe of Content -->
-            <!-- Table of Contents -->
-
-    
-      <aside id="sidebar">
-        <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
-        
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">需求及出现的问题</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">出现问题的代码</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">如何解决</span></a></li></ol>
-        
-        </div>
-      </aside>
-    
-
+            <div class="one-tag-list">
+                <span class="fa fa-calendar-times-o listing-seperator" id="2018">
+                    <span class="tag-text">2018</span>
+                </span>
+                <ul>
                 
-            <!-- Sidebar Container -->
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
-
-                <!-- Featured Tags -->
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <li >
+                    08-31
+                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                    <a href="/2018/08/31/React/" style="color: #0085a1">
+                        <span>
+                            React中使用better-scroll
+                        </span>
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </li>
                 
-                <section>
-                    <!-- no hr -->
-                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-                    <div class="tags">
-                       
-                          <a class="tag" href="/tags/#bug" title="bug">bug</a>
-                        
-                    </div>
-                </section>
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <li >
+                    08-30
+                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                    <a href="/2018/08/30/first-blog/" style="color: #0085a1">
+                        <span>
+                            博客简介
+                        </span>
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </li>
                 
-
-                <!-- Friends Blog -->
-                
-                <hr>
-                <h5>FRIENDS</h5>
-                <ul class="list-inline">
-
-                    
-                        <li><a href="http://beantech.org" target="_blank">Bean Tech</a></li>
-                    
-                        <li><a href="http://huangxuan.me" target="_blank">Hux Blog</a></li>
-                    
                 </ul>
-                
             </div>
+            
+
+
         </div>
     </div>
-</article>
+</div>
 
+                <!-- 如果开启评论功能 -->
+                
+            </div>
 
+          <!-- Sidebar Container -->
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+        <!-- Featured Tags -->
 
+<section>
+    <!-- no hr -->
+    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+    <div class="tags">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+</section>
 
-<!-- disqus embedded js code start (one page only need to embed once) -->
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = "zhengxiuming";
-    var disqus_identifier = "http://blog.zhengxiuming.com.cn/2019/01/09/localCompareBug/";
-    var disqus_url = "http://blog.zhengxiuming.com.cn/2019/01/09/localCompareBug/";
+        <hr>
+    
+        <!-- Short About -->
+<section class="visible-md visible-lg">
+    <h5><a href="/about/">ABOUT ME</a></h5>
+    <div class="short-about">
 
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<!-- disqus embedded js code start end -->
+        
+            <img id = "avatar_pic" src="/img/timg.png" />
+        
 
+        
+            <p>Hi, i&#39;m X-Man</p>
+        
 
+        <!-- SNS Link -->
+        <ul class="list-inline">
+            
+            
+            
+                <li>
+                    <a target="_blank" href="https://www.zhihu.com/people/tie-dan-er-83">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa  fa-stack-1x fa-inverse">知</i>
+                        </span>
+                    </a>
+                </li>
+            
 
+            
+                <li>
+                    <a target="_blank" href="http://weibo.com/zhengxiuming">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+            
 
-<!-- async load function -->
-<script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
-<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
-<script>
-    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
-        anchors.options = {
-          visible: 'hover',
-          placement: 'left',
-          icon: 'ℬ'
-        };
-        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
-    })
-</script>
-<style>
-    /* place left on bigger screen */
-    @media all and (min-width: 800px) {
-        .anchorjs-link{
-            position: absolute;
-            left: -0.75em;
-            font-size: 1.1em;
-            margin-top : -0.1em;
-        }
-    }
-</style>
+            
 
+            
+                <li>
+                    <a target="_blank"  href="https://github.com/zhengxiuming">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+            
+            
+            
+            
+                <li>
+                    <a target="_blank"  href="https://www.linkedin.com/in/xiu-ming-zheng">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+</section>
+        <hr>
+    
+        
+  <h5>RECENT POSTS</h3>
+  <div class="widget">
+    <ul>
+      
+        <li>
+          <a href="/2019/01/10/HTTP-1/">《图解HTTP》学习笔记 之 第一篇：了解Web及网络基础</a>
+        </li>
+      
+        <li>
+          <a href="/2019/01/09/localCompareBug/">使用 localCompare 排序 在华为微信端出现的bug</a>
+        </li>
+      
+        <li>
+          <a href="/2019/01/09/future/">Future</a>
+        </li>
+      
+        <li>
+          <a href="/2018/08/31/React/">React中使用better-scroll</a>
+        </li>
+      
+        <li>
+          <a href="/2018/08/30/first-blog/">博客简介</a>
+        </li>
+      
+    </ul>
+  </div>
+
+        <hr>
+    
+        <!-- Friends Blog -->
+
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+
+    
+        <li><a href="http://beantech.org" target="_blank">Bean Tech</a></li>
+    
+        <li><a href="http://huangxuan.me" target="_blank">Hux Blog</a></li>
+    
+</ul>
+
+        <hr>
+    
+        
+    <h5>ARCHIVES</h5>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+
+        <hr>
+    
+</div>
+
+        
+    </div>
+</div>
 
 
     <!-- Footer -->

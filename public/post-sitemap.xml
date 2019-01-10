@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://blog.zhengxiuming.com.cn/2019/01/10/HTTP-1/</loc>
+        <lastmod>2019-01-10T08:36:44.067Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://blog.zhengxiuming.com.cn/2019/01/09/localCompareBug/</loc>
         <lastmod>2019-01-09T03:40:29.946Z</lastmod>
         <changefreq>weekly</changefreq>
