@@ -3,7 +3,7 @@ title: 《图解HTTP》学习笔记 之 第二章：简单的HTTP协议
 catalog: true
 date: 2019-01-15 10:21:40
 subtitle: 简单的HTTP协议
-header-img: img/header_img/tf-logo-dark.png
+header-img: "img/header_img/tf-logo-dark.png"
 tags: 
 - 图解HTTP
 catagories:
