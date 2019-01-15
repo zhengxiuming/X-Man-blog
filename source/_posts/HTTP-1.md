@@ -3,7 +3,7 @@ title: 《图解HTTP》学习笔记 之 第一篇：了解Web及网络基础
 catalog: true
 date: 2019-01-10 16:21:40
 subtitle: 了解Web及网络基础
-header-img: img/tf-logo-dark.png
+header-img: img/header_img/tf-logo-dark.png
 tags: 
 - 图解HTTP
 catagories:
