@@ -3,7 +3,7 @@ title: 使用 localCompare 排序 在华为微信端出现的bug
 catalog: true
 date: 2019-01-09 11:20:09
 subtitle:
-header-img:
+header-img: img/tf-logo-dark.png
 tags:
 - bug
 catagories:
