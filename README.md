@@ -2,8 +2,8 @@
 > 
 > This BeanTech theme created by [YuHsuan](http://beantech.org) modified from the original Porter [Kaijun](http://kaijun.rocks/hexo-theme-huxblog/)
 
-# [Live Demo](http://beantech.org)
-![BeanTech Desktop](http://beantech.org/img/beantech-desktop.png)
+# [Live Demo](http://blog.zhengxiuming.com.cn/)
+![BeanTech Desktop](http://blog.zhengxiuming.com.cn/img/home.jpeg)
 
 # Usage
 I publish the whole project for your convenience, so you can just follow the instruction down below, then you can easily customiz your own blog!
@@ -103,6 +103,3 @@ hexo deploy # hexo will push the static files automatically into the specific br
 ```
 
 # Have fun ^_^ 
-
-Please [Star](https://github.com/YenYuHsuan/hexo-theme-beantech) this Project if you like it! [Follow](https://github.com/YenYuHsuan) would also be appreciated!
-Peace!
