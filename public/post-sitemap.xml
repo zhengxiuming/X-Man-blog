@@ -7,8 +7,16 @@
     </url>
 
     <url>
+        <loc>http://blog.zhengxiuming.com.cn/2019/01/17/HTTP-4/</loc>
+        <lastmod>2019-01-17T03:22:31.861Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://blog.zhengxiuming.com.cn/2019/01/16/HTTP-3/</loc>
-        <lastmod>2019-01-16T06:10:02.637Z</lastmod>
+        <lastmod>2019-01-17T03:22:28.052Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

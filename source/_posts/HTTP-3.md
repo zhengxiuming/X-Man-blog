@@ -3,7 +3,7 @@ title: 《图解HTTP》学习笔记 之 第三章：HTTP报文内的HTTP信息
 catalog: true
 date: 2019-01-16 13:42:20
 subtitle: HTTP报文内的HTTP信息
-header-img:
+header-img: "img/header_img/tf-logo-dark.png"
 tags: 
 - 图解HTTP
 catagories:
